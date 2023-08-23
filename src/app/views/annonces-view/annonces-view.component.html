@@ -1,0 +1,56 @@
+
+
+  <body >
+    <app-header ></app-header>
+ 
+    <div  >
+  <div class="custom-spacing" >
+    <div class="d-flex justify-content-around"><div class="row">
+      <div class="col-md-12">
+        <div class="row">
+    <div *ngFor="let annonce of annonces; let i = index" class="col-md-5" class="card" style="width:18rem"
+    >
+    <div (click)="goToAnnonceDetails(annonce.id)">
+      <img class="card-img-top" [src]="'http://annonce.saf-trading.com' +'/'+ annonce.pictures">
+      <div class="card-body"
+      >
+        <h4 class="card-title"> {{annonce.title}} </h4>
+        <p class="card-text">{{annonce.description}}</p>
+          
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">${{annonce.price}}</li>
+        
+      </ul>
+      <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">available in {{annonce.country}}</li>
+          
+        </ul>
+        
+      </ul>
+    </div>
+      
+    </div>
+    </div>
+  </div>
+  </div>
+ </div>
+  
+  </div>
+  </div>
+
+  
+
+  
+</body>
+
+
+<div class="carousel-container">
+  <carousel 
+  class='carousel'[interval]="3000"  #carousel>
+    <slide *ngFor="let annonce of annonces">
+      <img [src]="'http://annonce.saf-trading.com' +'/'+ annonce.pictures" alt="Annonce Image" class="carousel-image">
+    </slide>
+  </carousel>
+</div>
