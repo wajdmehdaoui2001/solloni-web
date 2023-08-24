@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Annonce, AnnonceDetails } from 'src/app/models/annonce';
+import { Annonce } from 'src/app/models/annonce';
 import { AnnoncesService } from 'src/app/services/Annonces/annonces.service';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -14,7 +14,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class AnnoncesViewComponent implements OnInit,OnDestroy {
   @ViewChild('carousel')
   carousel!: ElementRef;
-  annoncesDetails:Array<AnnonceDetails>=[];
+  
   annoncesSubscription: Subscription | undefined; 
   annonces: Array<Annonce> = [];
 apiUrl: any;
@@ -22,11 +22,11 @@ apiUrl: any;
   
 
  ngOnInit(): void {
-  const apiUrl = 'http://annonce.saf-trading.com/api/WSAnnonce/GetAnnonces?page=1&amp;userId=ba90b330-8611-473c-9587-bfcc43588593';
+  const apiUrl = 'http://annonce.saf-trading.com/api/WSAnnonce/GetAnnonces?page=1';
 
     this.http.get(apiUrl).subscribe(
       (data: any) => {
-        this.annonces = data; // Supposant que la réponse est un tableau d'annonces
+        this.annonces = data; 
       },
       (error: any) => {
         console.error('Une erreur s\'est produite :', error);

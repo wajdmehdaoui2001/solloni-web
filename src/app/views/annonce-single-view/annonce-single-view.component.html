@@ -1,23 +1,8 @@
 
 
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            {{ annonceDetails.title }}
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{ annonceDetails.description }}</h5>
-            <p class="card-text">Prix: ${{ annonceDetails.price }}</p>
-            <p class="card-text">Ville: {{ annonceDetails.city }}</p>
-            <p class="card-text">Prénom: {{ annonceDetails.firstname }}</p>
-            <p class="card-text">Nom: {{ annonceDetails.lastname }}</p>
-            <p class="card-text">Adresse: {{annonceDetails.address }}</p>
-            <!-- Ajoutez d'autres propriétés ici -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div *ngIf="annonceDetails">
+  <h2>Détails de l'annonce</h2>
+  <p>Nom de l'utilisateur: {{ annonceDetails.firstname }} {{ annonceDetails.lastname }}</p>
+  <p>Adresse: {{ annonceDetails.address }}, {{ annonceDetails.city }}</p>
+  <p>Type d'inscription: {{ annonceDetails.inscriptionType }}</p>
   
